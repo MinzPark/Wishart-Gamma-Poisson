@@ -283,7 +283,8 @@ for(scn in 1:rep){
 }
 
 
-result <- cbind(tmp,tmp[,2] - tmp[,1])
+result <- cbind(seq(1,rep),tmp,tmp[,2] - tmp[,1])
+colnames(result) <- c('iter',"Matrix1", "Matrix2", 'difference')
 
 # save the result for Sigma scenario and likelihood ftn of each Sigma
 
@@ -300,7 +301,6 @@ for (i in seq_along(m.set)) {
 writeLines(sigma_scenario, paste0(filename,"/Real_sigma_scenario.txt"))
 
 
-colnames(result) <- c("Matrix1", "Matrix2", 'difference')
 write.csv(result, paste0(filename,'/Real_result.csv'), row.names = FALSE)
 
 
