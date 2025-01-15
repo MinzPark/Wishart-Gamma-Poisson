@@ -310,7 +310,8 @@ for(scn in 1:rep){
 }
 
 
-result <- cbind(tmp,tmp[,1] - tmp[,2])
+result <- cbind(seq(1,rep),tmp,tmp[,1] - tmp[,2])
+colnames(result) <- c('iter',"Matrix1", "Matrix2", 'difference')
 
 # save the result for Sigma scenario and likelihood ftn of each Sigma
 # save sigma scenario
@@ -328,7 +329,7 @@ writeLines(sigma_scenario, paste0(filename,"/Sim_sigma_scenario.txt"))
 # save the result of Simulation
 filename = file.path(path,'wishart/result',gsub("-", "", Sys.Date()))
 ifelse(!file.exists(filename), dir.create(filename, recursive = TRUE) ,0)
-colnames(result) <- c("Matrix1", "Matrix2", 'difference')
+
 write.csv(result, paste0(filename,'/Sim_result.csv'), row.names = FALSE)
 
 
