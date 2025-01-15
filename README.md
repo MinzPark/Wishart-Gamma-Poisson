@@ -1,4 +1,4 @@
-This is visitor research of Corcordia University with professor Yang Lu and researcher Minjeong Park.
+This is visitor research work of Corcordia University with professor Yang Lu and researcher Minjeong Park.
 
 # The Topic : Multivarite Modeling Under Random Effect Model
 - key idea:
