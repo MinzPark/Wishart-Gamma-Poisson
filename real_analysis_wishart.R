@@ -190,7 +190,7 @@ end.time <- Sys.time()
 
 
 Sig_ll <- function(M, Lambs, Ns, delta.hat, Sig_hat){
-  if(min(eigen(Sig_hat)$value < 0) > 0){
+  if(sum(eigen(Sig_hat)$value < 0) > 0){
     return("Some eigen value is neg")
   }else{  
     l_total = 0
@@ -299,6 +299,7 @@ for (i in seq_along(m.set)) {
   )
 }
 writeLines(sigma_scenario, paste0(filename,"/Real_sigma_scenario.txt"))
+
 
 
 write.csv(result, paste0(filename,'/Real_result.csv'), row.names = FALSE)
